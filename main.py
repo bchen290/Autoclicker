@@ -1,12 +1,17 @@
 import time
+import configparser
 
 import mouse
 import keyboard
 
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
 # Settings
-delay = 1
-toggle_pause_key = 'f6'
-exit_key = 'esc'
+delay = float(config.get('Settings', 'delay'))
+toggle_pause_key = config.get('Settings', 'pause_key')
+exit_key = config.get('Settings', 'exit_key')
 
 
 running = True
